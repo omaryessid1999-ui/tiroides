@@ -1,21 +1,32 @@
 import streamlit as st
+from utils.styles import apply_custom_design, landing_page_hero
 
 st.set_page_config(
-    page_title="Predicción de Tiroides",
+    page_title="Thyroid AI - Diagnóstico Predictivo",
     page_icon="🩺",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-st.title("🩺 Sistema de Predicción de Tiroides")
-st.markdown("""
-### Bienvenido a la plataforma de predicción
-Esta aplicación utiliza modelos de Machine Learning (Regresión Logística y Redes Neuronales) para predecir si un paciente tiene hipertiroidismo, hipotiroidismo o estado normal (las 3 clases del dataset original).
+# Aplicar diseño profesional
+apply_custom_design()
 
-**CONCEPTS > CODE:**
-Como hemos discutido, los modelos **ya están pre-entrenados** de forma offline. Esto significa que la aplicación no desperdicia recursos reentrenando con cada recarga de página. Únicamente se cargan en caché y se ejecutan para realizar predicciones instantáneas.
+# Mostrar Hero Section
+landing_page_hero()
 
-⬅️ **Selecciona una opción en el menú lateral:**
-- **Predicción Individual:** Ingresa los datos clínicos manualmente.
-- **Predicción por Lotes:** Sube un archivo CSV para evaluar múltiples registros y visualizar la Matriz de Confusión.
-""")
+st.markdown("---")
+
+st.subheader("💡 Fundamentos del Sistema")
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.markdown("### 🧠 Modelos Pre-entrenados")
+    st.write("Optimizamos el rendimiento cargando modelos serializados, evitando el sobrecosto de entrenamiento en tiempo de ejecución.")
+
+with col2:
+    st.markdown("### 📊 Análisis Multiclase")
+    st.write("Clasificación precisa entre Hipertiroidismo, Hipotiroidismo y estado Normal basada en 21 biomarcadores clínicos.")
+
+with col3:
+    st.markdown("### 🚀 Escalabilidad")
+    st.write("Capacidad de procesamiento por lotes para análisis masivos de datos clínicos con visualización de métricas de desempeño.")

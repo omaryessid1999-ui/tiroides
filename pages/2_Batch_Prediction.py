@@ -13,8 +13,10 @@ if base_dir not in sys.path:
     sys.path.append(base_dir)
 
 from utils.model_loader import load_models_and_scaler
+from utils.styles import apply_custom_design
 
 st.set_page_config(page_title="Predicción por Lotes", page_icon="📁", layout="wide")
+apply_custom_design()
 
 st.title("📁 Predicción por Lotes y Evaluación")
 
@@ -73,10 +75,13 @@ if uploaded_file is not None:
                 cm = confusion_matrix(y_true, y_pred)
                 
                 fig, ax = plt.subplots(figsize=(6, 4))
-                sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax)
-                ax.set_xlabel('Predicción')
-                ax.set_ylabel('Realidad')
-                ax.set_title(f'Matriz de Confusión - {model_choice}')
+                sns.heatmap(cm, annot=True, fmt='d', cmap='mako', ax=ax, cbar=False)
+                ax.set_xlabel('Predicción', color='#64FFDA')
+                ax.set_ylabel('Realidad', color='#64FFDA')
+                ax.tick_params(colors='#64FFDA')
+                ax.set_title(f'Matriz de Confusión - {model_choice}', color='#64FFDA', fontweight='bold')
+                fig.patch.set_facecolor('#112240')
+                ax.set_facecolor('#112240')
                 st.pyplot(fig)
                 
             with col2:

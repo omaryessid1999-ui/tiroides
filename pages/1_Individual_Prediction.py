@@ -9,8 +9,10 @@ if base_dir not in sys.path:
     sys.path.append(base_dir)
 
 from utils.model_loader import load_models_and_scaler
+from utils.styles import apply_custom_design
 
 st.set_page_config(page_title="Predicción Individual", page_icon="👤", layout="wide")
+apply_custom_design()
 
 st.title("👤 Predicción Individual de Tiroides")
 
