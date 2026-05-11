@@ -33,16 +33,6 @@ def apply_custom_design():
         font-weight: 700 !important;
     }
 
-    /* Custom Cards for Containers */
-    .st-emotion-cache-12w0qpk, .st-emotion-cache-1r6slb0 {
-        background: rgba(23, 42, 69, 0.6) !important;
-        padding: 2rem !important;
-        border-radius: 15px !important;
-        border: 1px solid rgba(100, 255, 218, 0.1) !important;
-        backdrop-filter: blur(5px);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    }
-
     /* Buttons */
     .stButton > button {
         background-color: transparent !important;
@@ -78,10 +68,9 @@ def apply_custom_design():
         border-radius: 10px !important;
     }
 
-    /* Hide Streamlit Branding */
-    #MainMenu {visibility: hidden;}
+    /* Safety: Hide only the absolutely non-essential branding */
     footer {visibility: hidden;}
-    header {visibility: hidden;}
+    #MainMenu {visibility: hidden;}
     
     </style>
     """, unsafe_allow_html=True)
